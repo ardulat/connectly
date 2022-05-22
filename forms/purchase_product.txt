@@ -1,0 +1,4 @@
+(i would|i'd) like to purchase .*
+can i purchase .*
+is .* in stock\?
+how to place the order\?

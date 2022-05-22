@@ -1,0 +1,4 @@
+what kind of .* you have\?
+.*can you (please )?recommend me .*
+which .* is better .*
+.*recommend.*

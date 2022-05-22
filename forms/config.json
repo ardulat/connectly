@@ -1,7 +1,15 @@
 [
     {
+        "form": "ask_for_recommendation",
+        "path": "ask_for_recommendation.txt"
+    },
+    {
         "form": "connect_with_operator",
         "path": "connect_with_operator.txt"
+    },
+    {
+        "form": "purchase_product",
+        "path": "purchase_product.txt"
     },
     {
         "form": "thank",
