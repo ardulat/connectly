@@ -1,5 +1,5 @@
 Connect with operator
-I would like to talk to operator
+I would like to talk to (operator|human)
 Let me talk to human
-.* human .*
-.* operator .*
+.*human.*
+.*operator.*

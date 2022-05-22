@@ -24,6 +24,7 @@ def main():
 
     while True:
         query = input("Query: ")
+        print()
 
         if query == 'c':
             exit()
@@ -35,6 +36,7 @@ def main():
             # Sign up the user
             print('How can I call you?')
             first_name = input()
+            print()
             assistant.authorize_user(args.phone_number, first_name)
             response = assistant.handle(query, args.phone_number, call_by_name=True)
 

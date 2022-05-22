@@ -27,7 +27,6 @@ def compile_forms():
 
             forms[form] = re.compile(regex_string)
 
-    print(forms)
     return forms
 
 

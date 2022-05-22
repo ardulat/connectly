@@ -25,13 +25,30 @@ class Assistant:
 
         self.users[phone_number] = first_name
 
+    def __match_forms(self, query):
+        matched = list()
+
+        for form, regex in self.forms.items():
+            if re.match(regex, query.lower()):
+                matched.append(form)
+
+        return matched
+
     def handle(self, query, phone_number, call_by_name=False):
         if self.verbose:
             print("Handling query: {}".format(query))
-        response = 'Okay'
+
+        # TODO(ardulat): handle query
+
+        # match forms based on the regex
+        forms = self.__match_forms(query)
+
+        # select handlers by the forms above
+
+        response = ''
         if call_by_name:
-            response = response + ', ' + self.users[phone_number]
-        response = response + '. ' + query
+            response = self.users[phone_number] + '. '
+        response = response + query
 
         return response
 
