@@ -1,52 +1,11 @@
 import re
 
-from collections import defaultdict
-from transformers import pipeline
-
-
-def compile_grammars():
-    # TODO(ardulat): should be verbose only
-    print('Compiling grammars.')
-    pass
-
-
-def retrieve_users():
-    # TODO(ardulat): should be verbose only
-    print('Retrieving users from database.')
-    # NOTE(ardulat): here can be your SQL query to retrieve all signed users from a database
-    # or instead you can retrieve user info on each query (better not to store all users in runtime)
-
-    users = dict()
-    with open('users.tsv') as f:
-        for line in f:
-            phone_number, first_name = line.strip().split('\t')
-
-            assert re.match(r"\+\d+", phone_number)
-            assert re.match(r"\w+", first_name)
-
-            users[phone_number] = first_name
-
-    return users
-
-
-def compile_handlers():
-    # TODO(ardulat): should be verbose only
-    print('Compiling handlers.')
-    pass
-
-
-def compile_ner():
-    # TODO(ardulat): should be verbose only
-    print('Compiling NER.')
-
-    # NOTE(ardulat): you can also use 'en_core_web_sm' NER provided by spacy, but it's not that accurate.
-    ner = pipeline('ner', model='elastic/distilbert-base-cased-finetuned-conll03-english')
-    return ner
+from utils import compile_forms, retrieve_users, compile_handlers, compile_ner
 
 
 class Assistant:
     def __init__(self, verbose=False):
-        # self.grammars = compile_grammars()
+        self.forms = compile_forms()
         self.users = retrieve_users()
         # self.handlers = compile_handlers()
         self.verbose = verbose

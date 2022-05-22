@@ -1,0 +1,5 @@
+Connect with operator
+I would like to talk to operator
+Let me talk to human
+.* human .*
+.* operator .*
