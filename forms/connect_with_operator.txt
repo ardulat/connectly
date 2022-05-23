@@ -1,5 +1,3 @@
-Connect with operator
-I would like to talk to (operator|human)
-Let me talk to human
-.*human.*
-.*operator.*
+Connect (me)? with (operator|human)
+I (would like|want) to talk to (operator|human)
+Let me talk to (operator|human)
