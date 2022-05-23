@@ -1,17 +1,8 @@
+from classifiers.common import PRECLASSIFIER_MODEL_NAME, TASK
 from transformers import pipeline
 
 
 CONNECT_WITH_OPERATOR_FORM = 'connect_with_operator'
-TASK = """
-    Rank query by intent.
-
-    I would like to purchase a sofa => purchase_product
-
-    What kind of toys for kids do you have? => ask_for_recommendation
-
-    Thank you so much => thank
-
-"""
 
 
 class Preclassifier(object):
@@ -19,7 +10,7 @@ class Preclassifier(object):
         self.verbose = verbose
         if verbose:
             print("Initializing preclassifier.")
-        self.clf = pipeline(task="zero-shot-classification", model='EthanChen0418/few-shot-model-five-classes')
+        self.clf = pipeline(task="zero-shot-classification", model=PRECLASSIFIER_MODEL_NAME)
 
     def __filter_forms(self, forms):
         """
@@ -42,7 +33,7 @@ class Preclassifier(object):
         filtered_forms = self.__filter_forms(forms)
 
         if self.verbose:
-            print("Forms after filtration:")
+            print("Forms after filtration (preclassification stage):")
             print(filtered_forms)
 
         sequence = TASK + "\n" + query + " => "

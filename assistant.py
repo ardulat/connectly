@@ -1,6 +1,7 @@
 import re
 
 from classifiers.pre import Preclassifier
+from classifiers.post import Postclassifier
 from handlers.handlers import Handlers
 from utils import compile_forms, retrieve_users, compile_ner
 
@@ -13,6 +14,7 @@ class Assistant:
         self.ner = compile_ner()
         self.handlers = Handlers(verbose=verbose)
         self.preclassifier = Preclassifier(verbose=verbose)
+        self.postclassifier = Postclassifier(verbose=verbose)
 
     def __retrieve_first_name(self, first_name_query):
         # Response to 'How can I call you?' might not be always the name only.
@@ -61,13 +63,14 @@ class Assistant:
         # select forms to handle based on preclassifier
         forms_to_handle = self.preclassifier.preclassify(query, forms)
 
-        # TODO(ardulat): handle forms
+        # walk through form handlers and collect responses
         responses = self.handlers.handle(forms_to_handle, query)
 
         # TODO(ardulat): postclassify
-        # final_response = self.postclassifier.postclassify(responses)
+        print(responses)
+        final_response = self.postclassifier.postclassify(query, responses).text_response
 
-        final_response = responses[0].text_response
+        # final_response = responses[0].text_response
         if call_by_name:
             prefix = self.users[phone_number] + ', '
             final_response = final_response[0].lower() + final_response[1:]

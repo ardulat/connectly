@@ -4,6 +4,9 @@ class Response(object):
         self.irrelevant = False
         self.should_callback = ''
 
+    def is_irrelevant(self):
+        return self.irrelevant
+
     def set_irrelevant(self):
         self.irrelevant = True
 

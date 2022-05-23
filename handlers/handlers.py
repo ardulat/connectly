@@ -19,15 +19,15 @@ class Handlers(object):
     def handle(self, forms_to_handle, query):
         """
             Handle forms based on the forms to handlers map.
-            Returns list of responses - List[Response].
+            Returns dictionary of form to responses - Dict[Response].
         """
 
-        responses = list()
+        responses = dict()
 
         for form in forms_to_handle:
             assert form in self.handlers, "No handler found for form {} form!".format(form)
 
             response = self.handlers[form].handle(form, query)
-            responses.append(response)
+            responses[form] = response
 
         return responses
