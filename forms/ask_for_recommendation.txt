@@ -1,4 +1,4 @@
 what kind of .* you have\?
 .*can you (please )?recommend me .*
-which .* is better .*
+which .* is better.*
 .*recommend.*

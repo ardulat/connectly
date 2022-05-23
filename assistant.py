@@ -11,7 +11,7 @@ class Assistant:
         # self.handlers = compile_handlers()
         self.ner = compile_ner()
 
-    def __match_forms(self, query):
+    def match_forms(self, query):
         matched = list()
 
         for form, regex in self.forms.items():
@@ -53,7 +53,7 @@ class Assistant:
             print("Handling query: {}".format(query))
 
         # match forms based on the regex
-        forms = self.__match_forms(query)
+        forms = self.match_forms(query)
 
         # select handlers by the forms above
         # TODO(ardulat) preclassify - if connect_with_operator form exists, remove all other handlers

@@ -1,3 +1,4 @@
-Connect (me)? with (operator|human)
-I (would like|want) to talk to (operator|human)
+Connect( me)? with (operator|human)
+I(('d| would) like| want) to talk to (operator|human)
 Let me talk to (operator|human)
+Can I talk to (operator|human)\??
