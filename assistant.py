@@ -57,8 +57,7 @@ class Assistant:
         # match forms based on the regex
         forms = self.match_forms(query)
 
-        # select handlers by the forms above
-        # TODO(ardulat) preclassify - if connect_with_operator form exists, remove all other handlers
+        # select forms to handle based on preclassifier
         forms_to_handle = self.preclassifier.preclassify(query, forms)
 
         # TODO(ardulat): handle forms

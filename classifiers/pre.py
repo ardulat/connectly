@@ -34,6 +34,11 @@ class Preclassifier(object):
         return res
 
     def preclassify(self, query, forms):
+        """
+            Filters forms based on rules, classifies forms using few-shot learning method.
+            If only one form is left after filtration, returns it as a list.
+        """
+
         filtered_forms = self.__filter_forms(forms)
 
         if self.verbose:
@@ -47,7 +52,7 @@ class Preclassifier(object):
             clf_res = self.clf(sequence, candidate_labels)
         else:
             # no need to run inference for one single label
-            return candidate_labels[0]
+            return candidate_labels
 
         # NOTE(ardulat): we can also cut by threshold if necessary
         # clf_res = cut_by_threshold(clf_res['labels'], clf_res['scores'])
