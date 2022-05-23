@@ -16,7 +16,7 @@ def main():
     args = get_args()
 
     if args.verbose:
-        print('Starting conversation with {}.\n'.format(args.phone_number))
+        print('\nStarting conversation with {}.\n'.format(args.phone_number))
 
     assistant = Assistant(verbose=args.verbose)
 
