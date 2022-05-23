@@ -1,4 +1,5 @@
 from models.handler import BaseHandler
+from models.response import Response
 
 
 class ConnectWithOperatorHandler(BaseHandler):
@@ -6,4 +7,7 @@ class ConnectWithOperatorHandler(BaseHandler):
         pass
 
     def handle(self, form, query):
-        pass
+        # Here you can check if free operators available.
+        # If not, ask the user to wait and keep searching for free operators.
+
+        return Response('Redirecting you to operator.')

@@ -67,9 +67,10 @@ class Assistant:
         # TODO(ardulat): postclassify
         # final_response = self.postclassifier.postclassify(responses)
 
-        final_response = ''
+        final_response = responses[0].text_response
         if call_by_name:
-            final_response = self.users[phone_number] + '. '
-        final_response = final_response + query
+            prefix = self.users[phone_number] + ', '
+            final_response = final_response[0].lower() + final_response[1:]
+            final_response = prefix + final_response
 
         return final_response

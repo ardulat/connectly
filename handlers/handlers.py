@@ -1,8 +1,14 @@
+from handlers.ask_for_recommendation import AskForRecommendationHandler
 from handlers.connect_with_operator import ConnectWithOperatorHandler
+from handlers.purchase_product import PurchaseProductHandler
+from handlers.thank import ThankHandler
 
 
 HANDLERS_MAP = {
+    'ask_for_recommendation': AskForRecommendationHandler(),
     'connect_with_operator': ConnectWithOperatorHandler(),
+    'purchase_product': PurchaseProductHandler(),
+    'thank': ThankHandler(),
 }
 
 
