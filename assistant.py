@@ -1,7 +1,8 @@
 import re
 
-from utils import compile_forms, retrieve_users, compile_handlers, compile_ner
 from classifiers.pre import Preclassifier
+from handlers.handlers import Handlers
+from utils import compile_forms, retrieve_users, compile_ner
 
 
 class Assistant:
@@ -9,8 +10,8 @@ class Assistant:
         self.verbose = verbose
         self.forms = compile_forms()
         self.users = retrieve_users()
-        # self.handlers = compile_handlers()
         self.ner = compile_ner()
+        self.handlers = Handlers(verbose=verbose)
         self.preclassifier = Preclassifier(verbose=verbose)
 
     def __retrieve_first_name(self, first_name_query):
@@ -61,7 +62,7 @@ class Assistant:
         forms_to_handle = self.preclassifier.preclassify(query, forms)
 
         # TODO(ardulat): handle forms
-        # responses = self.handlers.handle(forms_to_handle)
+        responses = self.handlers.handle(forms_to_handle, query)
 
         # TODO(ardulat): postclassify
         # final_response = self.postclassifier.postclassify(responses)

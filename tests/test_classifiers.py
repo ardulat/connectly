@@ -1,7 +1,7 @@
 import pytest
 
-from ..assistant import Assistant
-from ..classifiers.pre import Preclassifier
+from assistant import Assistant
+from classifiers.pre import Preclassifier
 
 
 class TestClassifiers(object):

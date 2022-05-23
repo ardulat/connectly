@@ -1,7 +1,7 @@
 import pytest
 
-from ..assistant import Assistant
-from ..utils import compile_forms
+from assistant import Assistant
+from utils import compile_forms
 
 
 class TestForms(object):

@@ -50,12 +50,6 @@ def retrieve_users():
     return users
 
 
-def compile_handlers():
-    # TODO(ardulat): should be verbose only
-    print('Compiling handlers.')
-    pass
-
-
 def compile_ner():
     # TODO(ardulat): should be verbose only
     print('Compiling NER.')
