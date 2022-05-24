@@ -1,6 +1,10 @@
+import logging
 import pytest
 
 from assistant import Assistant
+
+
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(name)s] [%(levelname)s] %(message)s')
 
 
 class TestForms(object):

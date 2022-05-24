@@ -1,3 +1,4 @@
+import logging
 import pytest
 
 from handlers.ask_for_recommendation import AskForRecommendationHandler
@@ -5,6 +6,9 @@ from handlers.connect_with_operator import ConnectWithOperatorHandler
 from handlers.purchase_product import PurchaseProductHandler
 from handlers.return_product import ReturnProductHandler
 from handlers.thank import ThankHandler
+
+
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(name)s] [%(levelname)s] %(message)s')
 
 
 PURCHASE_PRODUCT_POSITIVE_RESPONSE = 'Yes, we have it in stock. ' + \
