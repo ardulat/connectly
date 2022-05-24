@@ -3,6 +3,9 @@ from models.response import Response
 from transformers import pipeline
 
 
+HYPOTHESIS_TEMPLATE = "The user wants to {}."
+
+
 class Postclassifier(object):
     def __init__(self, verbose=False):
         self.verbose = verbose
@@ -35,11 +38,11 @@ class Postclassifier(object):
             print("Forms after filtration (postclassification stage):")
             print(list(filtered_responses.keys()))
 
-        sequence = TASK + "\n" + query + " => "
+        sequence = TASK + query + " => "
         candidate_labels = list(filtered_responses.keys())
 
         if len(candidate_labels) > 1:
-            clf_res = self.clf(sequence, candidate_labels)
+            clf_res = self.clf(sequence, candidate_labels, hypothesis_template=HYPOTHESIS_TEMPLATE)
         elif len(candidate_labels) == 1:
             label = next(iter(candidate_labels)) # first and only label
             return responses[label]

@@ -36,7 +36,7 @@ class TestClassifiers(object):
 
     @pytest.mark.parametrize('query, candidate_responses, final_response_text', [
         ('I would like to purchase a sofa', FIRST_CANDIDATE_RESPONSES, 'purchase_product response'),
-        # ('Thank you so much', SECOND_CANDIDATE_RESPONSES, 'thank response'), # fails
+        ('Thank you so much', SECOND_CANDIDATE_RESPONSES, 'thank response'),
     ])
     def test_postclassifier(self, assistant, query, candidate_responses, final_response_text):
         assert assistant
