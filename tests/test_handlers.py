@@ -14,7 +14,7 @@ PURCHASE_PRODUCT_NEGATIVE_RESPONSE = 'Unfortunately, we don\'t have it now.'
 RECOMMENDATIONS_BOOK = [
     '1984 by by George Orwell',
     'A Brief History of Time by Stephen Hawking',
-    'Dune (Dune Chronicles, Book 1) by Frank Herbert',
+    'Dune (Dune Chronicles Book 1) by Frank Herbert',
     'Fahrenheit 451 by Ray Bradbury',
     'Harry Potter and the Sorcerer\'s Stone by J.K. Rowling',
     'The Hunger Games (Book 1) by Suzanne Collins',

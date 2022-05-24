@@ -28,6 +28,8 @@ class Assistant:
             if entity['entity'] == 'B-PER':
                 first_name = entity['word']
 
+        assert first_name, "Could not retrieve the name from the query!"
+
         return first_name
 
     def is_user_authorized(self, phone_number):
