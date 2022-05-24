@@ -1,3 +1,4 @@
+import logging
 import re
 
 from classifiers.pre import Preclassifier
@@ -6,8 +7,12 @@ from handlers.handlers import Handlers
 from utils import compile_forms, retrieve_users, compile_ner
 
 
+logger = logging.getLogger(__name__)
+
+
 class Assistant:
     def __init__(self, verbose=False):
+        logger.info("Waking up assistant.")
         self.verbose = verbose
         self.forms = compile_forms()
         self.users = retrieve_users()
@@ -20,8 +25,7 @@ class Assistant:
         # Response to 'How can I call you?' might not be always the name only.
         # Thus, we need to retrieve the name from the query using taggers.
         res = self.ner(first_name_query)
-        if self.verbose:
-            print(res)
+        logger.info(res)
         first_name = ''
 
         for entity in res:
@@ -36,8 +40,7 @@ class Assistant:
         return phone_number in self.users
 
     def authorize_user(self, phone_number, first_name_query):
-        if self.verbose:
-            print("Authorizing user.")
+        logger.info("Authorizing user.")
 
         first_name = self.__retrieve_first_name(first_name_query)
 
@@ -56,8 +59,7 @@ class Assistant:
         return matched
 
     def handle(self, query, phone_number, call_by_name=False):
-        if self.verbose:
-            print("Handling query: {}".format(query))
+        logger.info("Handling query: {}".format(query))
 
         # match forms based on the regex
         forms = self.match_forms(query)

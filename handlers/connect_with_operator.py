@@ -1,10 +1,15 @@
+import logging
+
 from models.handler import BaseHandler
 from models.response import Response
 
 
+logger = logging.getLogger(__name__)
+
+
 class ConnectWithOperatorHandler(BaseHandler):
     def __init__(self):
-        pass
+        logger.info("Connecting with operators.")
 
     def handle(self, form, query, user):
         # Here you can check if free operators available.

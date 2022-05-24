@@ -1,6 +1,11 @@
+import logging
 import random
+
 from models.handler import BaseHandler
 from models.response import Response
+
+
+logger = logging.getLogger(__name__)
 
 
 PRODUCTS_DATABASE = {
@@ -24,7 +29,7 @@ PRODUCTS_DATABASE = {
 
 class PurchaseProductHandler(BaseHandler):
     def __init__(self):
-        print("Connecting to products database.")
+        logger.info("Connecting to products database.")
 
     def __is_available(self, product_type, product_name):
         if product_type not in PRODUCTS_DATABASE:
@@ -51,8 +56,8 @@ class PurchaseProductHandler(BaseHandler):
         # TODO(ardulat): get product_type and product_name from form/frame
         # for now, let's just use some workaround
         product_type, product_name = self.__get_product_attributes(query)
-        print("Retrieved the following product attributes: \
-            product_type - {}, product_name - {}.".format(product_type, product_name))
+        logger.info("Retrieved the following product attributes: " +
+            "product_type - {}, product_name - {}.".format(product_type, product_name))
 
         if self.__is_available(product_type, product_name):
             return Response('Yes, we have it in stock. I will redirect you to our operators to place an order.')

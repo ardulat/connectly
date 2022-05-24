@@ -1,5 +1,10 @@
+import logging
+
 from classifiers.common import PRECLASSIFIER_MODEL_NAME, TASK
 from transformers import pipeline
+
+
+logger = logging.getLogger(__name__)
 
 
 CONNECT_WITH_OPERATOR_FORM = 'connect_with_operator'
@@ -8,8 +13,7 @@ CONNECT_WITH_OPERATOR_FORM = 'connect_with_operator'
 class Preclassifier(object):
     def __init__(self, verbose=False):
         self.verbose = verbose
-        if verbose:
-            print("Initializing preclassifier.")
+        logger.info("Initializing preclassifier.")
         self.clf = pipeline(task="zero-shot-classification", model=PRECLASSIFIER_MODEL_NAME)
 
     def __filter_forms(self, forms):
@@ -32,9 +36,7 @@ class Preclassifier(object):
 
         filtered_forms = self.__filter_forms(forms)
 
-        if self.verbose:
-            print("Forms after filtration (preclassification stage):")
-            print(filtered_forms)
+        logger.info("Forms after filtration (preclassification stage): {}".format(filtered_forms))
 
         sequence = TASK + "\n" + query + " => "
         candidate_labels = filtered_forms
@@ -48,7 +50,6 @@ class Preclassifier(object):
         # NOTE(ardulat): we can also cut by threshold if necessary
         # clf_res = cut_by_threshold(clf_res['labels'], clf_res['scores'])
 
-        if self.verbose:
-            print(clf_res)
+        logger.info(clf_res)
 
         return clf_res['labels']

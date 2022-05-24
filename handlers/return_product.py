@@ -1,5 +1,10 @@
+import logging
+
 from models.handler import BaseHandler
 from models.response import Response
+
+
+logger = logging.getLogger(__name__)
 
 
 PURCHASE_DATABASE = {
@@ -15,7 +20,7 @@ PURCHASE_DATABASE = {
 
 class ReturnProductHandler(BaseHandler):
     def __init__(self):
-        print("Connecting to purchase database.")
+        logger.info("Connecting to purchase database.")
 
     def __get_product_type(self, query, user):
         if user not in PURCHASE_DATABASE:

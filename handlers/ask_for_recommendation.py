@@ -1,7 +1,11 @@
+import logging
 import random
 
 from models.handler import BaseHandler
 from models.response import Response
+
+
+logger = logging.getLogger(__name__)
 
 
 PRODUCTS = {
@@ -27,7 +31,7 @@ PRODUCTS = {
 class AskForRecommendationHandler(BaseHandler):
     def __init__(self):
         # initialize recommendation system
-        print("Initializing recommendation system.")
+        logger.info("Initializing recommendation system.")
 
     def handle(self, form, query, user):
         text_response = 'Here are few recommendations: '

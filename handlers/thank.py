@@ -1,7 +1,11 @@
+import logging
 import random
 
 from models.handler import BaseHandler
 from models.response import Response
+
+
+logger = logging.getLogger(__name__)
 
 
 RESPONSES = [
@@ -14,7 +18,7 @@ RESPONSES = [
 
 class ThankHandler(BaseHandler):
     def __init__(self):
-        pass
+        logger.info("Collecting \"Thank you\" phrases.")
 
     def handle(self, form, query, user):
         response = random.choice(RESPONSES)

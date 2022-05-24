@@ -1,6 +1,11 @@
+import logging
+
 from classifiers.common import POSTCLASSIFIER_MODEL_NAME, TASK
 from models.response import Response
 from transformers import pipeline
+
+
+logger = logging.getLogger(__name__)
 
 
 HYPOTHESIS_TEMPLATE = "The user wants to {}."
@@ -8,9 +13,7 @@ HYPOTHESIS_TEMPLATE = "The user wants to {}."
 
 class Postclassifier(object):
     def __init__(self, verbose=False):
-        self.verbose = verbose
-        if verbose:
-            print("Initializing postclassifier.")
+        logger.info("Initializing postclassifier.")
         self.clf = pipeline(task="zero-shot-classification", model=POSTCLASSIFIER_MODEL_NAME)
 
     def __filter_responses(self, responses):
@@ -34,9 +37,7 @@ class Postclassifier(object):
 
         filtered_responses = self.__filter_responses(responses)
 
-        if self.verbose:
-            print("Forms after filtration (postclassification stage):")
-            print(list(filtered_responses.keys()))
+        logger.info("Forms after filtration (postclassification stage): {}".format(list(filtered_responses.keys())))
 
         sequence = TASK + query + " => "
         candidate_labels = list(filtered_responses.keys())
@@ -53,7 +54,6 @@ class Postclassifier(object):
         # NOTE(ardulat): we can also cut by threshold if necessary
         # clf_res = cut_by_threshold(clf_res['labels'], clf_res['scores'])
 
-        if self.verbose:
-            print(clf_res)
+        logger.info(clf_res)
 
         return responses[clf_res['labels'][0]]
