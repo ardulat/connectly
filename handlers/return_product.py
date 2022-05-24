@@ -17,6 +17,8 @@ class ReturnProductHandler(BaseHandler):
         print("Connecting to purchase database.")
 
     def __get_product_type(self, query, user):
+        if user not in PURCHASE_DATABASE:
+            return ''
         for product in PURCHASE_DATABASE[user]:
             if product in query:
                 return product

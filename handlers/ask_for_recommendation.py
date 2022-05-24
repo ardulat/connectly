@@ -8,7 +8,7 @@ PRODUCTS = {
     'book': [
         '1984 by by George Orwell',
         'A Brief History of Time by Stephen Hawking',
-        'Dune (Dune Chronicles, Book 1) by Frank Herbert',
+        'Dune (Dune Chronicles Book 1) by Frank Herbert',
         'Fahrenheit 451 by Ray Bradbury',
         'Harry Potter and the Sorcerer\'s Stone by J.K. Rowling',
         'The Hunger Games (Book 1) by Suzanne Collins',
@@ -44,7 +44,7 @@ class AskForRecommendationHandler(BaseHandler):
         recommendations = random.sample(products, k=3)
         for r in recommendations:
             text_response = text_response + r + ', '
-        text_response = text_response[:-2] + '.'
+        text_response = text_response[:-2] + '.' #  remove last comma w/ space, add dot
 
         response = Response(text_response)
 
