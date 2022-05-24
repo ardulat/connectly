@@ -8,5 +8,5 @@ class BaseHandler(ABC):
         pass
 
     @abstractmethod
-    def handle(self, form, query):
+    def handle(self, form, query, user):
         pass

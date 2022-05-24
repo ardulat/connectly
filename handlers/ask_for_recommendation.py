@@ -29,7 +29,7 @@ class AskForRecommendationHandler(BaseHandler):
         # initialize recommendation system
         print("Initializing recommendation system.")
 
-    def handle(self, form, query):
+    def handle(self, form, query, user):
         text_response = 'Here are few recommendations: '
 
         # here we can check if some certain slots in form are present

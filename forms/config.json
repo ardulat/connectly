@@ -12,6 +12,10 @@
         "path": "purchase_product.txt"
     },
     {
+        "form": "return_product",
+        "path": "return_product.txt"
+    },
+    {
         "form": "thank",
         "path": "thank.txt"
     }

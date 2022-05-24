@@ -64,13 +64,11 @@ class Assistant:
         forms_to_handle = self.preclassifier.preclassify(query, forms)
 
         # walk through form handlers and collect responses
-        responses = self.handlers.handle(forms_to_handle, query)
+        responses = self.handlers.handle(forms_to_handle, query, phone_number)
 
-        # TODO(ardulat): postclassify
-        print(responses)
+        # select form to respond based on postclassifier
         final_response = self.postclassifier.postclassify(query, responses).text_response
 
-        # final_response = responses[0].text_response
         if call_by_name:
             prefix = self.users[phone_number] + ', '
             final_response = final_response[0].lower() + final_response[1:]

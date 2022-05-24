@@ -15,6 +15,6 @@ class ThankHandler(BaseHandler):
     def __init__(self):
         pass
 
-    def handle(self, form, query):
+    def handle(self, form, query, user):
         response = random.choice(RESPONSES)
         return Response(response)

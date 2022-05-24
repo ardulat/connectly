@@ -5,6 +5,8 @@ TASK = """
 
     What kind of toys for kids do you have? => ask_for_recommendation
 
+    I would like to return a sofa => return_product
+
     Thank you so much => thank
 
 """

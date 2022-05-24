@@ -16,6 +16,7 @@ class TestForms(object):
         ('i would like to purchase a sofa', ['purchase_product']),
         ('i would like to purchase a sofa, thank you', ['purchase_product', 'thank']),
         ('can you please recommend me a sofa for my cousin?', ['ask_for_recommendation']),
+        ('can i return the purchased sofa?', ['return_product']),
     ])
     def test_positive(self, assistant, query, forms):
         assert assistant
