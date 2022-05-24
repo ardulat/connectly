@@ -44,7 +44,7 @@ class Postclassifier(object):
         if len(candidate_labels) > 1:
             clf_res = self.clf(sequence, candidate_labels, hypothesis_template=HYPOTHESIS_TEMPLATE)
         elif len(candidate_labels) == 1:
-            label = next(iter(candidate_labels)) # first and only label
+            label = next(iter(candidate_labels))  # first and only label
             return responses[label]
         else:
             # no responses found

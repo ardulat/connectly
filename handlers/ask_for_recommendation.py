@@ -34,7 +34,7 @@ class AskForRecommendationHandler(BaseHandler):
 
         # here we can check if some certain slots in form are present
         products = []
-        if 'book' in query: # but instead I will use query for now (because we don't have slots yet)
+        if 'book' in query:  # but instead I will use query for now (because we don't have slots yet)
             products = PRODUCTS['book']
         else:
             products = PRODUCTS['other']
@@ -44,7 +44,7 @@ class AskForRecommendationHandler(BaseHandler):
         recommendations = random.sample(products, k=3)
         for r in recommendations:
             text_response = text_response + r + ', '
-        text_response = text_response[:-2] + '.' #  remove last comma w/ space, add dot
+        text_response = text_response[:-2] + '.'  # remove last comma w/ space, add dot
 
         response = Response(text_response)
 

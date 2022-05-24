@@ -19,7 +19,7 @@ class Preclassifier(object):
         res = forms
 
         # prioritize forms
-        if CONNECT_WITH_OPERATOR_FORM in forms or not forms: # if no matched forms present
+        if CONNECT_WITH_OPERATOR_FORM in forms or not forms:  # if no matched forms present
             res = [CONNECT_WITH_OPERATOR_FORM]
 
         return res

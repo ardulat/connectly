@@ -7,6 +7,10 @@ from handlers.return_product import ReturnProductHandler
 from handlers.thank import ThankHandler
 
 
+PURCHASE_PRODUCT_POSITIVE_RESPONSE = 'Yes, we have it in stock. ' + \
+    'I will redirect you to our operators to place an order.'
+PURCHASE_PRODUCT_NEGATIVE_RESPONSE = 'Unfortunately, we don\'t have it now.'
+
 RECOMMENDATIONS_BOOK = [
     '1984 by by George Orwell',
     'A Brief History of Time by Stephen Hawking',
@@ -23,6 +27,7 @@ RECOMMENDATIONS_OTHER = [
     'Kali Linux',
     'Ubuntu',
 ]
+
 
 class TestHandlers(object):
 
@@ -66,9 +71,9 @@ class TestHandlers(object):
         assert response.text_response in expected_responses
 
     @pytest.mark.parametrize('query, expected_response', [
-        ('i would like to purchase a sofa', 'Yes, we have it in stock. I will redirect you to our operators to place an order.'),
-        ('i would like to purchase a book', 'Yes, we have it in stock. I will redirect you to our operators to place an order.'),
-        ('i would like to purchase a burger', 'Unfortunately, we don\'t have it now.'),
+        ('i would like to purchase a sofa', PURCHASE_PRODUCT_POSITIVE_RESPONSE),
+        ('i would like to purchase a book', PURCHASE_PRODUCT_POSITIVE_RESPONSE),
+        ('i would like to purchase a burger', PURCHASE_PRODUCT_NEGATIVE_RESPONSE),
     ])
     def test_purchase_product_handler(self, query, expected_response, user):
         form = 'purchase_product'
@@ -141,4 +146,3 @@ class TestHandlers(object):
         assert len(recommendations_list) == 3
         for r in recommendations_list:
             assert r in expected_recommendations
-

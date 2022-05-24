@@ -51,7 +51,8 @@ class PurchaseProductHandler(BaseHandler):
         # TODO(ardulat): get product_type and product_name from form/frame
         # for now, let's just use some workaround
         product_type, product_name = self.__get_product_attributes(query)
-        print("Retrieved the following product attributes: product_type - {}, product_name - {}.".format(product_type, product_name))
+        print("Retrieved the following product attributes: \
+            product_type - {}, product_name - {}.".format(product_type, product_name))
 
         if self.__is_available(product_type, product_name):
             return Response('Yes, we have it in stock. I will redirect you to our operators to place an order.')

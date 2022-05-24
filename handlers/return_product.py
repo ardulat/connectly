@@ -12,6 +12,7 @@ PURCHASE_DATABASE = {
     ],
 }
 
+
 class ReturnProductHandler(BaseHandler):
     def __init__(self):
         print("Connecting to purchase database.")
@@ -40,5 +41,5 @@ class ReturnProductHandler(BaseHandler):
         elif not self.__has_purchased(user, product_type):
             return Response("Opps! You haven't purchased this item from us.")
 
-        return Response('We are sorry to hear that. I will initiate a return process. ' + \
-            'Our operators will connect with you to share details on how to return {}.'.format(product_type))
+        return Response('We are sorry to hear that. I will initiate a return process. ' +
+                        'Our operators will connect with you to share details on how to return {}.'.format(product_type))

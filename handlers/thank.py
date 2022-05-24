@@ -11,6 +11,7 @@ RESPONSES = [
     'No problem.'
 ]
 
+
 class ThankHandler(BaseHandler):
     def __init__(self):
         pass
