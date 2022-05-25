@@ -11,7 +11,7 @@ class TestForms(object):
 
     @pytest.fixture(scope='class')
     def assistant(self):
-        return Assistant(verbose=True)
+        return Assistant()
 
     @pytest.mark.parametrize('query, forms', [
         ('can i talk to human', ['connect_with_operator']),

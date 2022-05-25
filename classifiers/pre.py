@@ -11,8 +11,7 @@ CONNECT_WITH_OPERATOR_FORM = 'connect_with_operator'
 
 
 class Preclassifier(object):
-    def __init__(self, verbose=False):
-        self.verbose = verbose
+    def __init__(self):
         logger.info("Initializing preclassifier.")
         self.clf = pipeline(task="zero-shot-classification", model=PRECLASSIFIER_MODEL_NAME)
 

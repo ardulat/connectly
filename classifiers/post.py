@@ -12,7 +12,7 @@ HYPOTHESIS_TEMPLATE = "The user wants to {}."
 
 
 class Postclassifier(object):
-    def __init__(self, verbose=False):
+    def __init__(self):
         logger.info("Initializing postclassifier.")
         self.clf = pipeline(task="zero-shot-classification", model=POSTCLASSIFIER_MODEL_NAME)
 

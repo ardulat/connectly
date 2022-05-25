@@ -26,7 +26,7 @@ THIRD_CANDIDATE_RESPONSES = {
 class TestClassifiers(object):
     @pytest.fixture(scope='class')
     def assistant(self):
-        return Assistant(verbose=True)
+        return Assistant()
 
     @pytest.mark.parametrize('query, forms', [
         ('i would like to purchase a sofa', ['purchase_product']),

@@ -11,15 +11,14 @@ logger = logging.getLogger(__name__)
 
 
 class Assistant:
-    def __init__(self, verbose=False):
+    def __init__(self):
         logger.info("Waking up assistant.")
-        self.verbose = verbose
         self.forms = compile_forms()
         self.users = retrieve_users()
         self.ner = compile_ner()
-        self.handlers = Handlers(verbose=verbose)
-        self.preclassifier = Preclassifier(verbose=verbose)
-        self.postclassifier = Postclassifier(verbose=verbose)
+        self.handlers = Handlers()
+        self.preclassifier = Preclassifier()
+        self.postclassifier = Postclassifier()
 
     def __retrieve_first_name(self, first_name_query):
         # Response to 'How can I call you?' might not be always the name only.

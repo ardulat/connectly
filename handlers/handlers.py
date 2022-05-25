@@ -20,7 +20,7 @@ HANDLERS_MAP = {
 
 
 class Handlers(object):
-    def __init__(self, verbose=False):
+    def __init__(self):
         self.handlers = HANDLERS_MAP
 
     def handle(self, forms_to_handle, query, user):

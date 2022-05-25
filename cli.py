@@ -12,7 +12,6 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--phone_number', type=str, default='+77472447424')
     parser.add_argument('--shop', type=str, default='Shopify')
-    parser.add_argument('-v', '--verbose', action='store_true')
     return parser.parse_args()
 
 
@@ -21,7 +20,7 @@ def main():
 
     logger.info('Starting conversation with {}.'.format(args.phone_number))
 
-    assistant = Assistant(verbose=args.verbose)
+    assistant = Assistant()
 
     print('\n{}: Hello, I am Connectly, assistant at {} online shop. How can I help you?'.format(args.shop, args.shop))
 
